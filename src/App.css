@@ -95,4 +95,14 @@
 .country .flag_container img{
   height: 100%;
   width: 100%;
+  object-fit: cover;
+}
+.country .name{
+  margin-bottom: 10px;
+}
+.country .values{
+  color: gray;
+}
+.country .details{
+  padding: 15px;
 }
