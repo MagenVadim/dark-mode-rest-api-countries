@@ -71,3 +71,28 @@
   border: none;
   outline: none;
 }
+.countries{
+  max-width: 1400px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+.country{
+  background-color: white;
+  width: 305px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  height: 370px;
+  cursor: pointer;
+}
+.country .flag_container{
+  height: 170px;
+  width: 100%;
+}
+.country .flag_container img{
+  height: 100%;
+  width: 100%;
+}
