@@ -9,9 +9,6 @@
   min-height: 100vh;
   height: 100%;
 }
-.app.darkMode{
-  
-}
 .app_body{
   margin: 15px auto 0;
   padding: 15px;
@@ -170,4 +167,61 @@
   margin: 10px;
   cursor: pointer;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, .2);
+}
+
+/* ------------DARK MODE --------------- */
+.app.darkMode{
+  background-color: var(--dark-mode-bg);
+  color: white;
+}
+.header.darkMode{
+  background-color: var(--dark-mode-elements);
+  color: white;
+}
+.search_input.darkMode{
+  background-color: var(--dark-mode-elements);
+  color: white;
+}
+.search_input.darkMode input{
+  color: white;
+}
+.select_region.darkMode{
+  background-color: var(--dark-mode-elements);
+  color: white;
+}
+.select_region.darkMode select{
+  color: white;
+}
+.select_region.darkMode option{
+  background-color: var(--dark-mode-elements);
+  color: white;
+}
+.search_input.darkMode input::placeholder{
+  color: white;
+}
+.country.darkMode{
+  background-color: var(--dark-mode-elements);
+  color: white;
+}
+.country .values.darkMode{
+  color: lightgray;
+}
+.back.darkMode{
+  background-color: var(--dark-mode-elements);
+  color: white;
+}
+.info.darkMode{
+  color: white;
+}
+.info .values.darkMode{
+  color: lightgray;
+}
+.border_country.darkMode{
+  background-color: var(--dark-mode-elements);
+  color: white;
+}
+@media(max-width:800px){
+  .country_details_body{
+    flex-direction: column;
+  }
 }
