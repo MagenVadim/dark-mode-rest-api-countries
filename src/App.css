@@ -224,4 +224,29 @@
   .country_details_body{
     flex-direction: column;
   }
+  .info_container{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .left_info{
+    margin-bottom: 20px;
+  }
+}
+@media (max-width:720px){
+  .inputs{
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  .search_input{
+    margin-bottom: 20px;
+  }
+  .switch_mode{
+    font-size: 12px;
+    flex: .5;
+    justify-content: flex-end;
+  }
+  .logo{
+    flex: .5;
+    font-size: 17px;
+  }
 }
