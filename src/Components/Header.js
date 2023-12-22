@@ -2,12 +2,12 @@ import React from 'react'
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 
-function Header() {
+function Header({onClick, darkMode}) {
   return (
-    <div className='header'>
+    <div className={`header ${darkMode ? 'darkMode' : ''}`}>
         <div className="header_container">
             <h2 className="logo">Where in the world?</h2>
-            <div className="switch_mode">
+            <div className="switch_mode" onClick={onClick}>
                 <DarkModeIcon/>
                 <h3>Dark mode</h3>
             </div>

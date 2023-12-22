@@ -58,6 +58,7 @@
   outline: none;
   font-size: 18px;
 }
+
 .select_region{
   width: 300px;
   background-color: white;
@@ -187,9 +188,10 @@
 }
 .select_region.darkMode{
   background-color: var(--dark-mode-elements);
-  color: white;
+  color: white;  
 }
 .select_region.darkMode select{
+  background-color: var(--dark-mode-bg);
   color: white;
 }
 .select_region.darkMode option{
