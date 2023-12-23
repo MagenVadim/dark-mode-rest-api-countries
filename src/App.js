@@ -3,6 +3,7 @@ import Header from './Components/Header'
 import Search from './Components/Search'
 import Country from './Components/Country'
 import CountryDetails from './Components/CountryDetails'
+
 import {Routes, Route} from 'react-router-dom';
 
 import {useState, useEffect} from "react"
@@ -12,10 +13,27 @@ import {useState, useEffect} from "react"
 function App() {
 
   const[darkMode, setDarkMode] = useState(false)
+  const[countries, setCountries] = useState([])
+
   const switchMode = ()=>{
     setDarkMode(prevState => !prevState)
   }
   
+  useEffect(()=>{
+    try{
+      fetchData()
+    } catch(error){
+      console.log(error)
+    }    
+  })
+  
+  const fetchData = async()=>{
+    const response = await fetch("https://restcountries.com/v2/all");
+    const data = await response.json();
+    setCountries(data);    
+  }
+
+
 
   return (
     <div className={`app ${darkMode ? 'darkMode' :  ''}`}>
@@ -23,21 +41,30 @@ function App() {
       <Header onClick={switchMode} darkMode={darkMode}/>
       
       <Routes>
-        <Route path='' element={
+        <Route path='/' element={
           <>
             <div className="app_body">
               <Search darkMode={darkMode}/>
             </div>
       
             <div className="countries">
-              <Country darkMode={darkMode}/>
+              {
+              countries.map(country => (
+                <Country darkMode={darkMode}
+                 key={country.alpha3Code}
+                 code={country.alpha3Code}
+                 name={country.name}
+                 capital={country.capital}
+                 population={country.population}
+                 region={country.region}
+                 flag={country.flag}
+                 />
+              ))
+              }
             </div>
           </>
         }/>
-      </Routes>
-
-      <Routes>
-        <Route path='country-details' element={<CountryDetails darkMode={darkMode}/>}/>
+        <Route path='country-details' element={<CountryDetails darkMode={darkMode}/>}/>        
       </Routes>
       
     </div>
