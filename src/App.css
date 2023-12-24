@@ -8,6 +8,7 @@
   background-color: var(--light-mode-bg);
   min-height: 100vh;
   height: 100%;
+
 }
 .app_body{
   margin: 15px auto 0;
@@ -76,10 +77,11 @@
   max-width: 1400px;
   padding: 15px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 35px;
+  margin: 0 auto;
 }
 .country{
   background-color: white;

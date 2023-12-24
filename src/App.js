@@ -6,14 +6,18 @@ import CountryDetails from './Components/CountryDetails'
 
 import {Routes, Route} from 'react-router-dom';
 
-import {useState, useEffect} from "react"
+import {useState, useEffect, useRef} from "react"
 
 
 
 function App() {
 
-  const[darkMode, setDarkMode] = useState(false)
-  const[countries, setCountries] = useState([])
+  const[darkMode, setDarkMode] = useState(false);
+  const[countries, setCountries] = useState([]);
+  const countriesInputRef = useRef();
+  const regionRef = useRef();
+
+
 
   const switchMode = ()=>{
     setDarkMode(prevState => !prevState)
@@ -44,7 +48,7 @@ function App() {
         <Route path='/' element={
           <>
             <div className="app_body">
-              <Search darkMode={darkMode}/>
+              <Search darkMode={darkMode} countriesInputRef={countriesInputRef} regionRef={regionRef}/>
             </div>
       
             <div className="countries">

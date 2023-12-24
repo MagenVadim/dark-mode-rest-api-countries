@@ -1,17 +1,28 @@
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 
-function Search({darkMode}) {
+function Search({darkMode, countriesInputRef, regionRef}) {
+
+  const searchCountries = ()=>{
+    const searchValue = countriesInputRef.current.value;
+    if (searchValue.trim()){
+      const fetchSearch = async ()=>{
+        const response = await fetch(`https://restcountries.com/v2/name/${searchValue}`)
+        const data = await response.json()
+      }
+    }
+  }
+
   return (
     <div className="inputs">
 
       <div className={`search_input ${darkMode ? 'darkMode' :  ''}`}>
         <SearchIcon/>
-        <input type="text" placeholder='Search for a country...'/>
+        <input type="text" placeholder='Search for a country...' ref={countriesInputRef} onChange={searchCountries}/>
       </div>
       
       <div className={`select_region ${darkMode ? 'darkMode' :  ''}`}>
-        <select>
+        <select ref={regionRef}>
             <option>Filter by Region</option>
             <option>Africa</option>
             <option>America</option>
