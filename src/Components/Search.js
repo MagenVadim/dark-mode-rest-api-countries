@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 
-function Search({darkMode, countriesInputRef, regionRef}) {
+function Search({darkMode, countriesInputRef, regionRef, setCountries, fetchData}) {
 
   const searchCountries = ()=>{
     const searchValue = countriesInputRef.current.value;
@@ -9,7 +9,15 @@ function Search({darkMode, countriesInputRef, regionRef}) {
       const fetchSearch = async ()=>{
         const response = await fetch(`https://restcountries.com/v2/name/${searchValue}`)
         const data = await response.json()
+        setCountries(data)        
       }
+      try{
+        fetchSearch()
+      } catch (error){
+        console.log(error)
+      }
+    } else {
+      fetchData()
     }
   }
 

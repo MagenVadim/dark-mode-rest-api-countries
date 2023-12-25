@@ -29,7 +29,7 @@ function App() {
     } catch(error){
       console.log(error)
     }    
-  })
+  }, [])
   
   const fetchData = async()=>{
     const response = await fetch("https://restcountries.com/v2/all");
@@ -48,7 +48,7 @@ function App() {
         <Route path='/' element={
           <>
             <div className="app_body">
-              <Search darkMode={darkMode} countriesInputRef={countriesInputRef} regionRef={regionRef}/>
+              <Search darkMode={darkMode} countriesInputRef={countriesInputRef} regionRef={regionRef} setCountries={setCountries} fetchData={fetchData}/>
             </div>
       
             <div className="countries">
