@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 
-function Search({darkMode, countriesInputRef, regionRef, setCountries, fetchData}) {
+function Search({darkMode, countriesInputRef, regionRef, setCountries, fetchData, selectRegion}) {
 
   const searchCountries = ()=>{
     const searchValue = countriesInputRef.current.value;
@@ -30,10 +30,10 @@ function Search({darkMode, countriesInputRef, regionRef, setCountries, fetchData
       </div>
       
       <div className={`select_region ${darkMode ? 'darkMode' :  ''}`}>
-        <select ref={regionRef}>
+        <select ref={regionRef} onChange={selectRegion}>
             <option>Filter by Region</option>
             <option>Africa</option>
-            <option>America</option>
+            <option>Americas</option>
             <option>Asia</option>
             <option>Europe</option>
             <option>Oceania</option>
