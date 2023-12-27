@@ -1,11 +1,20 @@
 import React from 'react'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useParams, useNavigate } from 'react-router';
 
 function CountryDetails({darkMode}) {
+    const params = useParams();
+    const navigate = useNavigate();
+
+    const goBack = ()=>{
+        navigate("/")
+    }
+
+
   return (
     <div className='country_details'>
 
-      <button className={`back ${darkMode ? 'darkMode' : ''}` }>
+      <button className={`back ${darkMode ? 'darkMode' : ''}` } onClick={goBack}>
         <ArrowBackIcon/>
         <p>Go Back</p>
       </button>

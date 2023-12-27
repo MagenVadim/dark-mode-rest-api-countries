@@ -107,7 +107,7 @@ const showDetails = (code)=>{
             </div>
           </>
         }/>
-        <Route path='country-details' element={<CountryDetails darkMode={darkMode}/>}/>        
+        <Route path='/:countryCode' element={<CountryDetails darkMode={darkMode} countries={countries}/>}/>        
       </Routes>
       
     </div>
