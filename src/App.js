@@ -3,7 +3,7 @@ import Header from './Components/Header'
 import Search from './Components/Search'
 import Country from './Components/Country'
 import CountryDetails from './Components/CountryDetails'
-
+import { useNavigate } from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
 
 import {useState, useEffect, useRef} from "react"
@@ -16,6 +16,8 @@ function App() {
   const[countries, setCountries] = useState([]);
   const countriesInputRef = useRef();
   const regionRef = useRef();
+  const navigate = useNavigate();
+
   const noCountries = countries.status || countries.message;
 
 
@@ -64,8 +66,11 @@ function App() {
         console.log(error)
       }
     }
-
   }
+
+const showDetails = (code)=>{
+  navigate(`/${code}`);
+}
 
   return (
     <div className={`app ${darkMode ? 'darkMode' :  ''}`}>
@@ -91,6 +96,7 @@ function App() {
                     population={country.population}
                     region={country.region}
                     flag={country.flag}
+                    showDetails={showDetails}
                     />
                   ))
               ) : (
